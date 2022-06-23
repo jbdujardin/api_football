@@ -1,6 +1,6 @@
 name: api_football
 description: A package to consume api-football.com API.
-version: 1.0.0
+version: 1.1.0
 homepage: https://www.api-football.com
 repository: https://github.com/jbdujardin/api_football
 issue_tracker: https://github.com/jbdujardin/api_football/issues
