@@ -38,8 +38,7 @@ class ApiFootballAPI {
       switch (response.statusCode) {
         case 200:
           final data = json.decode(response.body);
-          if ((data['errors'] is List) &&
-              ((data['errors'] as List)).isNotEmpty) {
+          if ((data['errors'] is List) && ((data['errors'] as List)).isNotEmpty) {
             final error = (data['errors'] as List).first;
             throw ((error as Map).values.first);
           } else if ((data['errors'] is Map)) {
@@ -57,7 +56,7 @@ class ApiFootballAPI {
           }
       }
     } catch (err) {
-      throw ('Connection Error');
+      throw (err.toString);
     }
   }
 }

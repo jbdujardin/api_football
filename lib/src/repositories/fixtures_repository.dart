@@ -15,6 +15,17 @@ class FixturesRepository {
         },
       );
 
+  Future<List<String>> getRounds({required int leagueId, required int season}) => _api.getData(
+        path: 'fixtures/rounds',
+        params: {
+          'league': leagueId.toString(),
+          'season': season.toString(),
+        },
+        builder: (data) {
+          return List<String>.from(data['response']);
+        },
+      );
+
   Future<ApiFootballFixture> getFixture({required String fixtureId}) => _api.getData(
         path: 'fixtures',
         params: {
