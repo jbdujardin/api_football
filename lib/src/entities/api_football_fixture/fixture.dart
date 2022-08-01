@@ -6,7 +6,7 @@ class Fixture {
   int? id;
   String? referee;
   String? timezone;
-  DateTime? date;
+  String? date;
   int? timestamp;
   Periods? periods;
   Venue? venue;
@@ -27,26 +27,18 @@ class Fixture {
         id: json['id'] as int?,
         referee: json['referee'] as String?,
         timezone: json['timezone'] as String?,
-        date: json['date'] == null
-            ? null
-            : DateTime.parse(json['date'] as String),
+        date: json['date'] as String?,
         timestamp: json['timestamp'] as int?,
-        periods: json['periods'] == null
-            ? null
-            : Periods.fromJson(json['periods'] as Map<String, dynamic>),
-        venue: json['venue'] == null
-            ? null
-            : Venue.fromJson(json['venue'] as Map<String, dynamic>),
-        status: json['status'] == null
-            ? null
-            : Status.fromJson(json['status'] as Map<String, dynamic>),
+        periods: json['periods'] == null ? null : Periods.fromJson(json['periods'] as Map<String, dynamic>),
+        venue: json['venue'] == null ? null : Venue.fromJson(json['venue'] as Map<String, dynamic>),
+        status: json['status'] == null ? null : Status.fromJson(json['status'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {
         'id': id,
         'referee': referee,
         'timezone': timezone,
-        'date': date?.toIso8601String(),
+        'date': date,
         'timestamp': timestamp,
         'periods': periods?.toJson(),
         'venue': venue?.toJson(),
